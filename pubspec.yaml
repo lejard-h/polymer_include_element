@@ -1,11 +1,11 @@
 name: polymer_include_element
-description: Include an html element or an url
+description: Include an html element
 version: 0.0.1
 author: Hadrien Lejard <hadrien.lejard@gmail.com>
 homepage: https://github.com/lejard-h/polymer_include_element
 
 environment:
-  sdk: '>=1.0.0 <2.0.0'
+  sdk: '>=1.8.0 <2.0.0'
 
 dependencies:
   polymer: "^1.0.0-rc.2"
