@@ -1,0 +1,27 @@
+name: polymer_include_element
+description: Include an html element or an url
+version: 0.0.1
+author: Hadrien Lejard <hadrien.lejard@gmail.com>
+homepage: https://github.com/lejard-h/polymer_include_element
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  polymer: "^1.0.0-rc.2"
+  web_components: ^0.12.0
+  browser: ^0.10.0
+  reflectable: ^0.3.1
+
+dev_dependencies:
+  test: '>=0.12.0 <0.13.0'
+
+transformers:
+- web_components:
+    entry_points:
+    - example/index.html
+- reflectable:
+    entry_points:
+    - example/polymer_include_element.dart
+- $dart2js:
+    $include: '**/*.bootstrap.initialize.dart'
