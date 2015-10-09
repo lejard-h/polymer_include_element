@@ -25,7 +25,6 @@ class PolymerIncludeElement extends PolymerElement {
     }
 
     _include() {
-        print(container);
         if (container != null) {
             container.children.clear();
             if (element is HtmlElement) {
@@ -38,7 +37,6 @@ class PolymerIncludeElement extends PolymerElement {
 
     @reflectable
     include(newElement, oldElement) {
-        print(newElement);
         _include();
     }
 }
