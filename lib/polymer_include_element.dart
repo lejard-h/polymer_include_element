@@ -13,30 +13,28 @@ import 'package:web_components/web_components.dart' show HtmlImport;
 class PolymerIncludeElement extends PolymerElement {
     PolymerIncludeElement.created() : super.created();
 
-    @Property(notify: true, observer: "include")
-    var element;
+    var _element;
 
-    HtmlElement get container => $["container"];
-
-
-    ready() {
-        set('element', element);
-        _include();
-    }
-
-    _include() {
-        if (container != null) {
-            container.children.clear();
-            if (element is HtmlElement) {
-                container.append(element);
-            } else if (element is String) {
-                container.append(document.createElement(element));
-            }
-        }
-    }
+    @property
+    get element => _element;
 
     @reflectable
-    include(newElement, oldElement) {
-        _include();
+    set element(value) {
+        _element = value;
+        include(value);
+        notifyPath('element', _element);
+    }
+
+    HtmlElement get rootElement => Polymer.dom(this.root);
+
+    include(elem) {
+        rootElement.children.clear();
+        if (rootElement != null) {
+            if (elem is HtmlElement) {
+                rootElement.append(elem);
+            } else if (element is String) {
+                rootElement.append(document.createElement(elem));
+            }
+        }
     }
 }
