@@ -8,9 +8,10 @@ library polymer_include_element;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart' show HtmlImport;
+import 'polymer_include_element_behavior.dart';
 
 @PolymerRegister('polymer-include-element')
-class PolymerIncludeElement extends PolymerElement {
+class PolymerIncludeElement extends PolymerElement with PolymerIncludeElementBehavior {
     PolymerIncludeElement.created() : super.created();
 
     var _element;
@@ -23,18 +24,5 @@ class PolymerIncludeElement extends PolymerElement {
         _element = value;
         include(value);
         notifyPath('element', _element);
-    }
-
-    HtmlElement get rootElement => Polymer.dom(this.root);
-
-    include(elem) {
-        rootElement.children.clear();
-        if (rootElement != null) {
-            if (elem is HtmlElement) {
-                rootElement.append(elem);
-            } else if (element is String) {
-                rootElement.append(document.createElement(elem));
-            }
-        }
     }
 }
