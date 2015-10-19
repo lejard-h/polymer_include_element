@@ -3,19 +3,8 @@
 
 library polymer_include_elements.test;
 
-import 'package:polymer_include_element/polymer_include_element.dart';
-import 'package:test/test.dart';
+/*import 'package:polymer_include_element/polymer_include_element.dart';
+import 'package:test/test.dart';*/
 
 void main() {
-  group('A group of tests', () {
-    Awesome awesome;
-
-    setUp(() {
-      awesome = new Awesome();
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
-  });
 }

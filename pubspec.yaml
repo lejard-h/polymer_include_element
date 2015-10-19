@@ -1,6 +1,6 @@
 name: polymer_include_element
 description: Include an html element
-version: 0.0.4
+version: 0.0.5
 author: Hadrien Lejard <hadrien.lejard@gmail.com>
 homepage: https://github.com/lejard-h/polymer_include_element
 
@@ -24,4 +24,7 @@ transformers:
     entry_points:
     - example/polymer_include_element.dart
 - $dart2js:
-    $include: '**/*.bootstrap.initialize.dart'
+    minify: true
+    commandLineOptions:
+    - --trust-type-annotations
+    - --trust-primitives

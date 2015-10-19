@@ -10,27 +10,22 @@ import 'package:polymer/polymer.dart';
 @behavior
 abstract class PolymerIncludeElementBehavior {
 
-    HtmlElement get rootElement => Polymer.dom(this.root);
+  include(elem, PolymerDom parent) {
+    removeChildren(parent);
 
-    include(elem, [HtmlElement parent = null]) {
-        if (parent == null) {
-            parent = rootElement;
-        }
-        removeChildren(parent);
-        if (parent != null) {
-            if (elem is HtmlElement) {
-                parent.append(elem);
-            } else if (elem is String) {
-                parent.append(document.createElement(elem));
-            }
-        }
+    if (parent != null) {
+      if (elem is HtmlElement) {
+        parent.append(elem);
+      } else if (elem is String) {
+        HtmlElement _elem = document.createElement(elem);
+        parent.append(_elem);
+      }
+      PolymerDom.flush();
     }
+  }
 
-    removeChildren([HtmlElement parent]) {
-        if (parent == null) {
-            parent = rootElement;
-        }
-        parent.children.clear();
-    }
+  removeChildren(PolymerDom parent) {
+    parent.children.clear();
+  }
 
 }

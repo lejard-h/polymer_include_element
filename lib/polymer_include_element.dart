@@ -5,14 +5,16 @@
 @HtmlImport("polymer_include_element.html")
 library polymer_include_element;
 
-import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart' show HtmlImport;
 import 'polymer_include_element_behavior.dart';
+import 'dart:html';
 
 @PolymerRegister('polymer-include-element')
 class PolymerIncludeElement extends PolymerElement with PolymerIncludeElementBehavior {
     PolymerIncludeElement.created() : super.created();
+
+    HtmlElement get rootElement => Polymer.dom(this.root);
 
     var _element;
 
@@ -22,7 +24,7 @@ class PolymerIncludeElement extends PolymerElement with PolymerIncludeElementBeh
     @reflectable
     set element(value) {
         _element = value;
-        include(value);
+        include(value, rootElement);
         notifyPath('element', _element);
     }
 }
