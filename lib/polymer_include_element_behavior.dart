@@ -20,7 +20,6 @@ abstract class PolymerIncludeElementBehavior {
         HtmlElement _elem = document.createElement(elem);
         parent.append(_elem);
       }
-      PolymerDom.flush();
     }
   }
 

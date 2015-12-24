@@ -14,7 +14,7 @@ import 'dart:html';
 class PolymerIncludeElement extends PolymerElement with PolymerIncludeElementBehavior {
     PolymerIncludeElement.created() : super.created();
 
-    HtmlElement get rootElement => Polymer.dom(this.root);
+    PolymerDom get rootElement => Polymer.dom(this.root);
 
     var _element;
 
@@ -24,6 +24,7 @@ class PolymerIncludeElement extends PolymerElement with PolymerIncludeElementBeh
     @reflectable
     set element(value) {
         _element = value;
+        print(value);
         include(value, rootElement);
         notifyPath('element', _element);
     }
