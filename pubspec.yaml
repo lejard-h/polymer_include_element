@@ -1,8 +1,8 @@
 name: polymer_include_element
 description: Include an html element
-version: 0.0.7
-author: Hadrien Lejard <hadrien.lejard@gmail.com>
-homepage: https://github.com/lejard-h/polymer_include_element
+version: 0.0.9
+author: Walletek <hadrien.lejard@gmail.com>
+homepage: https://github.com/walletek/polymer_include_element
 
 environment:
   sdk: '>=1.13.0 <2.0.0'
